@@ -1,0 +1,87 @@
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 100%;
+}
+
+i {
+    padding: 12px;
+}
+
+.default_card{
+  width: 240px;
+/*  height: 100px; */
+  margin: 14px;
+  padding: 16px;
+  font-size: 2.1em;
+}
+
+.time{
+    font-size: 8.5em;
+    margin: 0px;
+    padding: 0px;
+}
+
+.time_sec{
+    font-size: 4.25em;
+}
+
+.half_font{
+   font-size: 0.75em;
+}
+
+.large_font{
+    font-size: 1.25em;
+}
+
+.xlarge_font{
+    font-size: 2.3em;
+}
+
+.xxlarge_font{
+    font-size: 2.7em;
+    font-weight: 600;
+}
+
+.xxxlarge_font{
+    font-size: 3em;
+    font-weight: 600;
+}
+
+.left_float_icon {
+     float:left;
+     width:100px;
+}
+
+.left_float_50 {
+     float:left;
+     width:50%;
+}
+
+.left_float_forecast {
+     float:left;
+     padding: 10px;
+}
+
+.left_float_full {
+     float:left;
+}
+
+.after_float {
+    clear:both;
+}
+
+.full_width {
+    width:100%;
+}
+
+.dynamic_container {
+    width:1360px;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 10px;
+}
+
+.fix_height {
+    height:70px;
+}

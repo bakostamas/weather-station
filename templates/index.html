@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="300">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Station</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="static/color_themes/{{color_theme}}" type="text/css">
+    <link rel="stylesheet" href="static/weather-icons.css" type="text/css">
+    <link rel="stylesheet" href="static/weather-icons-wind.css" type="text/css">
+    <link rel="stylesheet" href="static/style.css" type="text/css">
+    <script type="text/javascript" src="static/javascript.js"></script>
+    <script type="text/javascript" src="static/Chart.js"></script>
+
+
+</head>
+<body class="w3-theme-l4">
+
+
+
+    <div class="w3-row w3-theme w3-border-bottom">
+        <div class="w3-col s12 m12 l4">
+            <div class="full_width" style="text-align:center">
+
+                <div class="full_width xlarge_font w3-border-bottom">
+                    <i class="wi wi3 {{ weather_now.weather_icon }}"></i>{{weather_now.city_name}}
+                </div>
+
+                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-thermometer"></i> {{weather_now.temp_now}} °C</div>
+                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-humidity"></i> {{weather_now.humidity}}%</div>
+                <div class="after_float"></div>
+
+                <div class="left_float_50 xlarge_font"><i class="wi wi3 wi-barometer"></i> {{weather_now.pressure}} hPA</div>
+                <div class="left_float_50 xlarge_font"><i class="wi wi3 wi-wind from-{{weather_now.wind_dir}}-deg"></i> {{weather_now.wind_speed}} Km/h</div>
+                <div class="after_float"></div>
+
+            </div>
+
+        </div>
+
+        <div class="w3-col s12 m12 l4 w3-center">
+              <div>
+                   <span class="time" id="time1">--:--</span>
+                   <span> </span>
+                   <span class="time_sec" id="sec1">--</span>
+              </div>
+        </div>
+
+        <div class="w3-col s12 m12 l4" style="text-align:center">
+
+                <div class="full_width xlarge_font w3-border-bottom">{{weather_now.day_of_week}}, <span id="date1">---/--/--</span></div>
+
+                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-thermometer"></i> {{sensor.temperature}} °C</div>
+                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-humidity"></i> {{sensor.humidity}}%</div>
+                <div class="after_float"></div>
+
+                <div class="full_width xlarge_font"><i class="wi wi3 wi-barometer"></i> {{sensor.pressure}} hPA</div>
+                <div class="after_float"></div>
+
+        </div>
+    </div>
+
+
+    <div class="w3-row w3-theme-d2 w3-border-bottom">
+        <div class="w3-col s12 m12 l4 w3-center">
+
+            <div class="xlarge_font full_width" style="text-align:center">
+                <i class="wi wi3 wi-sunrise"></i> {{weather_now.sunrise}}
+            </div>
+
+        </div>
+
+        <div class="w3-col s12 m12 l4 w3-center">
+
+            <div class="xlarge_font full_width" style="text-align:center">{{weather_now.weather_desc}}</div>
+
+        </div>
+
+        <div class="w3-col s12 m12 l4 w3-center">
+
+            <div class="xlarge_font full_width" style="text-align:center">
+                <i class="wi wi3 wi-sunset"></i> {{weather_now.sunset}}
+            </div>
+
+        </div>
+    </div>
+
+        <div class="w3-center dynamic_container">
+                <div class="left_float_forecast w3-card-2 default_card w3-card-text">
+                    <div class="w3-theme">{{lang_dict.today}}</div>   {# forecast.day_of_week[0] #}
+                    <div class="xlarge_font"><i class="wi wi3 wi-owm-{{ forecast.weather_id[0] }}"></i></div>
+                    <div class="half_font fix_height w3-border-bottom">{{forecast.weather_desc[0]}}</div>
+                    <div><i class="wi wi3 wi-thermometer"></i>{{forecast.temp_min[0]}}°C - {{forecast.temp_max[0]}}°C</div>
+                    <div class="w3-text-green w3-border-bottom">
+                        <i class="wi wi2 wi-direction-right"></i>
+                        {{forecast.temp_diff[0]}}°C
+                    </div>
+                    <div><i class="wi wi3 wi-humidity"></i>{{forecast.humidity[0]}}%</div>
+                    <div><i class="wi wi3 wi-barometer"></i>{{forecast.pressure[0]}} hPA</div>
+                </div>
+
+                <div class="left_float_forecast w3-card-2 default_card w3-card-text">
+                    <div class="w3-theme">{{forecast.day_of_week[1]}}</div>
+                    <div class="xlarge_font"><i class="wi wi3 wi-owm-{{ forecast.weather_id[1] }}"></i></div>
+                    <div class="half_font fix_height w3-border-bottom">{{forecast.weather_desc[1]}}</div>
+                    <div><i class="wi wi3 wi-thermometer"></i>{{forecast.temp_min[1]}}°C - {{forecast.temp_max[1]}}°C</div>
+                    <div class="w3-text-{{forecast.temp_diff_trend[1][1]}} w3-border-bottom">
+                        <i class="wi wi2 {{forecast.temp_diff_trend[1][0]}}"></i>
+                        {{forecast.temp_diff[1]}}°C
+                    </div>
+                    <div><i class="wi wi3 wi-humidity"></i>{{forecast.humidity[1]}}%</div>
+                    <div><i class="wi wi3 wi-barometer"></i>{{forecast.pressure[1]}} hPA</div>
+                </div>
+
+                <div class="left_float_forecast w3-card-2 default_card w3-card-text">
+                    <div class="w3-theme">{{forecast.day_of_week[2]}}</div>
+                    <div class="xlarge_font"><i class="wi wi3 wi-owm-{{ forecast.weather_id[2] }}"></i></div>
+                    <div class="half_font fix_height w3-border-bottom">{{forecast.weather_desc[2]}}</div>
+                    <div><i class="wi wi3 wi-thermometer"></i>{{forecast.temp_min[2]}}°C - {{forecast.temp_max[2]}}°C</div>
+                    <div class="w3-text-{{forecast.temp_diff_trend[2][1]}} w3-border-bottom">
+                        <i class="wi wi2 {{forecast.temp_diff_trend[2][0]}}"></i>
+                        {{forecast.temp_diff[2]}}°C
+                    </div>
+                    <div><i class="wi wi3 wi-humidity"></i>{{forecast.humidity[2]}}%</div>
+                    <div><i class="wi wi3 wi-barometer"></i>{{forecast.pressure[2]}} hPA</div>
+                </div>
+
+                <div class="left_float_forecast w3-card-2 default_card w3-card-text">
+                    <div class="w3-theme">{{forecast.day_of_week[3]}}</div>
+                    <div class="xlarge_font"><i class="wi wi3 wi-owm-{{ forecast.weather_id[3] }}"></i></div>
+                    <div class="half_font fix_height w3-border-bottom">{{forecast.weather_desc[3]}}</div>
+                    <div><i class="wi wi3 wi-thermometer"></i>{{forecast.temp_min[3]}}°C - {{forecast.temp_max[3]}}°C</div>
+                    <div class="w3-text-{{forecast.temp_diff_trend[3][1]}} w3-border-bottom">
+                        <i class="wi wi2 {{forecast.temp_diff_trend[3][0]}}"></i>
+                        {{forecast.temp_diff[3]}}°C
+                    </div>
+                    <div><i class="wi wi3 wi-humidity"></i>{{forecast.humidity[3]}}%</div>
+                    <div><i class="wi wi3 wi-barometer"></i>{{forecast.pressure[3]}} hPA</div>
+                </div>
+
+                <div class="left_float_forecast w3-card-2 default_card w3-card-text">
+                    <div class="w3-theme">{{forecast.day_of_week[4]}}</div>
+                    <div class="xlarge_font"><i class="wi wi3 wi-owm-{{ forecast.weather_id[4] }}"></i></div>
+                    <div class="half_font fix_height w3-border-bottom">{{forecast.weather_desc[4]}}</div>
+                    <div><i class="wi wi3 wi-thermometer"></i>{{forecast.temp_min[4]}}°C - {{forecast.temp_max[4]}}°C</div>
+                    <div class="w3-text-{{forecast.temp_diff_trend[4][1]}} w3-border-bottom">
+                        <i class="wi wi2 {{forecast.temp_diff_trend[4][0]}}"></i>
+                        {{forecast.temp_diff[4]}}°C
+                    </div>
+                    <div><i class="wi wi3 wi-humidity"></i>{{forecast.humidity[4]}}%</div>
+                    <div><i class="wi wi3 wi-barometer"></i>{{forecast.pressure[4]}} hPA</div>
+                </div>
+
+                <div class="after_float"></div>
+
+                {# <div>{{lang_dict.now}}</div> #}
+
+        </div>
+
+
+
+<script>
+    startTime();
+
+
+
+</script>
+
+</body>
+</html>
