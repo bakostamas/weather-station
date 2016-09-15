@@ -93,3 +93,6 @@ ENV/
 
 # Database file
 database.db
+
+# Configured app_settings.py file
+app_settings_private.py
