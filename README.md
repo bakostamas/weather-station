@@ -1,4 +1,4 @@
 # weather-station
 Weather Station application mainly for Raspberry Pi
 
-## Test section
+## Detailed description is coming soon...
