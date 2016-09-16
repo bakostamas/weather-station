@@ -1,13 +1,14 @@
+# Deployment on web server
 
---ENGLISH VERSION IS COMMING SOON!--
+--FULL ENGLISH VERSION IS COMMING SOON!--
 
+## Use Python 3.x version!
 
-Python3-ra tervezve!
-Érdemes virtualenv-et létrehozni és oda telepíteni:
-http://docs.python-guide.org/en/latest/dev/virtualenvs
+## Recommended to install under virtualenv, but it's not a must have.
+More info here: http://docs.python-guide.org/en/latest/dev/virtualenvs
 
-Flask-et is fel kell telepíteni a virtualenv-be:
-http://flask.pocoo.org/
+## Install dependencies:
+  pip install -r requirements.txt
 
 
 LINUX: locale -a  (kilistázza a rendszeren lévő valid locale kódokat pl.: 'hu_HU.utf8')
