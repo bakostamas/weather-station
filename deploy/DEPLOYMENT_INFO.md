@@ -4,10 +4,10 @@
 ## Use Python 3.x version!
 
 
-## You msut register on openweathermap.org and get your appid
-Go to openweathermap.org website and register (the free plan is suitable).
-You will get your private appid.
-Open app_settings.py file and set your private appid at section appid = ''
+## You must register on openweathermap.org and get your appid
+Go to http://openweathermap.org/ website and register (the free plan is suitable).
+After registration you will get your private appid.
+Now open the app_settings.py file and set your private appid at section appid = ''.
 
 
 ## Set up you city's code
@@ -99,6 +99,8 @@ crontab -e
   */10 * * * * /var/www/cgi-bin/your-project-folder/deploy/data_collector.sh>/dev/null 2>&1
 ```
 
+If you have set up crontab it's recommended to switch of the default data collector at every access.
+Open app_settings.py file and set log_gathered_data = False
 
 ## If you have got problem with locale codes
 On LINUX list the installed local codes:
@@ -106,4 +108,4 @@ On LINUX list the installed local codes:
 locale -a
 ```
 Check start_app.py file at the localization section and fix the locale codes if needed.
-On Windows it's usually simply like 'en' or 'hu'.
+On Windows it's usually simply just two characters like 'en' or 'de'.

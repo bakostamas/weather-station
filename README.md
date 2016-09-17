@@ -13,6 +13,7 @@ http://bakostamas.ddns.net/weather/
 ## Techical details
 - Programing language: Python3
 - Based on Flask web development framework
+- Multi language support
 - At the moment it's optimized to at least 1366*768 or larger display resolution.
 
 ## Detailed deployment information
