@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="static/weather-icons.css" type="text/css">
     <link rel="stylesheet" href="static/weather-icons-wind.css" type="text/css">
     <link rel="stylesheet" href="static/style.css" type="text/css">
+    <script type="text/javascript" src="static/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="static/javascript.js"></script>
 
 
@@ -161,8 +162,11 @@
 
 
 <script>
-    startTime();
 
+$(function() {
+  // Handler for .ready() called.
+  startTime();
+});
 
 
 </script>
