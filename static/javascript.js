@@ -28,3 +28,9 @@ function startTime() {
     }, 500);
 }
 
+function swapPanels() {
+  $( "#temperature" ).slideUp( "slow", function() {
+    // Animation complete.
+  });
+}
+
