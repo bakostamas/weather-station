@@ -25,15 +25,36 @@
             <div class="full_width" style="text-align:center">
 
                 <div class="full_width xlarge_font w3-border-bottom">
-                    <i class="wi wi3 {{ weather_now.weather_icon }}"></i>{{weather_now.city_name}}
+                    {{weather_now.city_name}}
                 </div>
 
-                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-thermometer"></i> {{weather_now.temp_now}} °C</div>
-                <div class="left_float_50 xxlarge_font w3-border-bottom"><i class="wi wi3 wi-humidity"></i> {{weather_now.humidity}}%</div>
-                <div class="after_float"></div>
+                <div class="left_float_full xxxlarge_font"><i class="wi wi1 {{ weather_now.weather_icon }}"></i></div>
 
-                <div class="left_float_50 xlarge_font"><i class="wi wi3 wi-barometer"></i> {{weather_now.pressure}} hPA</div>
-                <div class="left_float_50 xlarge_font"><i class="wi wi3 wi-wind from-{{weather_now.wind_dir}}-deg"></i> {{weather_now.wind_speed}} Km/h</div>
+                <div class="left_float_60 xxxlarge_font" id="temperature">
+                    <div class="send_back"><i class="wi wi3 wi-thermometer"></i></div>
+                    <div class="send_front">{{weather_now.temp_now}} °C</div>
+
+                </div>
+
+
+                <div class="left_float_60 xxxlarge_font" id="humidity" style="display:none">
+                    <div class="send_back"><i class="wi wi3 wi-humidity"></i></div>
+                    <div class="send_front">{{weather_now.humidity}}%</div>
+
+                </div>
+
+                <div class="left_float_60 xxxlarge_font" id="pressure" style="display:none">
+                    <div class="send_back"><i class="wi wi3 wi-barometer"></i></div>
+                    <div class="send_front">{{weather_now.pressure}} hPA</div>
+
+                </div>
+
+                <div class="left_float_60 xxxlarge_font" id="wind" style="display:none">
+                    <div class="send_back"><i class="wi wi3 wi-wind from-{{weather_now.wind_dir}}-deg"></i></div>
+                    <div class="send_front">{{weather_now.wind_speed}} Km/h</div>
+
+                </div>
+
                 <div class="after_float"></div>
 
             </div>
@@ -155,9 +176,6 @@
 
                 <div class="after_float"></div>
 
-                <div id="temperature">25 °C</div>
-                <div id="humidity" style="display:none">52 %</div>
-
         </div>
 
 
@@ -167,7 +185,7 @@
 $(function() {
   // Handler for .ready() called.
   startTime();
-  swapPanels();
+  startSwapPanels();
 });
 
 

@@ -28,9 +28,36 @@ function startTime() {
     }, 500);
 }
 
+var panels = [
+    "#temperature",
+    "#humidity",
+    "#pressure",
+    "#wind"
+];
+var count_panels = panels.length;
+var active_panel = "#temperature";
+var counter = 0;
+
+
 function swapPanels() {
-  $( "#temperature" ).slideUp( "slow", function() {
-    // Animation complete.
+
+  $( active_panel ).slideUp( "slow", function() {  //unload
+    $( panels[counter+1] ).slideDown( "slow", function() {  //load
+
+      active_panel = panels[counter+1];
+      if (counter < count_panels-2) {
+         counter++;
+      } else {
+         counter = -1;
+      }
+
+    })
   });
+
 }
 
+
+function startSwapPanels() {
+
+    var x = setInterval(swapPanels, 5000);
+}

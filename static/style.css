@@ -58,6 +58,11 @@ i {
      width:50%;
 }
 
+.left_float_60 {
+     float:left;
+     width:60%;
+}
+
 .left_float_forecast {
      float:left;
      padding: 10px;
@@ -84,4 +89,19 @@ i {
 
 .fix_height {
     height:70px;
+}
+
+.send_back {
+    position: relative;
+    left: 0px;
+    top: 30px;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+.send_front {
+    position: relative;
+    left: 0px;
+    top: -40px;
+    z-index: 1;
 }
