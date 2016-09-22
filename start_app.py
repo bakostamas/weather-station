@@ -5,7 +5,7 @@ Start script for Weather Station application
 from weather import fetch_weather_now, fetch_weather_forecast, calculate_temp_dif
 from flask import Flask, render_template
 from contextlib import closing
-import app_settings, database_actions, json, importlib, locale, connected_sensor
+import app_settings, database_actions, json, importlib, locale, connected_sensor, time
 
 
 app = Flask(__name__)
@@ -44,6 +44,8 @@ def index():
     weather_now_fetch = fetch_weather_now(app_settings.city_code)
     if app_settings.log_gathered_data == True:
         database_actions.save_current_weather_to_db(weather_now_fetch)
+
+    time.sleep(2)  # Wait 2 seconds before the next query (needed for openweathermap.org to work correctly)
 
     # Get and save to database forecast weather data
     forecast_fetch = fetch_weather_forecast(app_settings.city_code)
