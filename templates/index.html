@@ -30,10 +30,9 @@
 
                 <div class="left_float_full xxxlarge_font"><i class="wi wi1 {{ weather_now.weather_icon }}"></i></div>
 
-                <div class="left_float_60 xxxlarge_font" id="temperature">
-                    <div class="send_back"><i class="wi wi3 wi-thermometer"></i></div>
-                    <div class="send_front">{{weather_now.temp_now}} °C</div>
-
+                <div class="left_float_60">
+                    <div class="time_sec">{{weather_now.temp_now}} °C</div>
+                    <div class="large_font2"><i class="wi wi4 wi-thermometer"></i>7°C - 17°C</div>
                 </div>
 
 
@@ -185,7 +184,7 @@
 $(function() {
   // Handler for .ready() called.
   startTime();
-  startSwapPanels();
+  // startSwapPanels();
 });
 
 
