@@ -22,36 +22,40 @@
 
     <div class="w3-row w3-theme w3-border-bottom">
         <div class="w3-col s12 m12 l4">
-            <div class="full_width" style="text-align:center">
+            <div class="full_width" style="text-align:center;position:relative">
 
                 <div class="full_width xlarge_font w3-border-bottom">
-                    {{weather_now.city_name}}
+                    <div class="right_float">{{weather_now.city_name}}</div>
+                    <div class="after_float"></div>
                 </div>
 
-                <div class="left_float_full xxxlarge_font"><i class="wi wi1 {{ weather_now.weather_icon }}"></i></div>
+                {# <div class="left_float_full xxxlarge_font"><i class="wi wi4 wi-thermometer"></i></div> #}
 
-                <div class="left_float_60">
-                    <div class="time_sec">{{weather_now.temp_now}} °C</div>
-                    <div class="large_font2"><i class="wi wi4 wi-thermometer"></i>7°C - 17°C</div>
+                <div class="right_float swap_values" id="temperature">
+                    <div style="font-size:4.1em;font-weight:600">{{weather_now.temp_now}} °C</div>
+                    <div class="large_font2">
+                        {{forecast.temp_min[0]}} °C - {{forecast.temp_max[0]}} °C
+                    </div>
                 </div>
 
 
-                <div class="left_float_60 xxxlarge_font" id="humidity" style="display:none">
-                    <div class="send_back"><i class="wi wi3 wi-humidity"></i></div>
-                    <div class="send_front">{{weather_now.humidity}}%</div>
-
+                <div class="right_float swap_values xxxlarge_font" id="humidity" style="display:none">
+                    <div>{{weather_now.humidity}} %</div>
+                    <div><i class="wi wi3 wi-humidity"></i></div>
                 </div>
 
-                <div class="left_float_60 xxxlarge_font" id="pressure" style="display:none">
-                    <div class="send_back"><i class="wi wi3 wi-barometer"></i></div>
-                    <div class="send_front">{{weather_now.pressure}} hPA</div>
-
+                <div class="right_float swap_values xxxlarge_font" id="pressure" style="display:none">
+                    <div>{{weather_now.pressure}} hPA</div>
+                    <div><i class="wi wi3 wi-barometer"></i></div>
                 </div>
 
-                <div class="left_float_60 xxxlarge_font" id="wind" style="display:none">
-                    <div class="send_back"><i class="wi wi3 wi-wind from-{{weather_now.wind_dir}}-deg"></i></div>
-                    <div class="send_front">{{weather_now.wind_speed}} Km/h</div>
+                <div class="right_float swap_values xxxlarge_font" id="wind" style="display:none">
+                    <div>{{weather_now.wind_speed}} Km/h</div>
+                    <div><i class="wi wi3 wi-wind from-{{weather_now.wind_dir}}-deg"></i></div>
+                </div>
 
+                <div class="right_float xxxlarge_font" style="position:absolute;right:230px">
+                    <i class="wi wi1 {{ weather_now.weather_icon }}"></i>
                 </div>
 
                 <div class="after_float"></div>
@@ -184,7 +188,7 @@
 $(function() {
   // Handler for .ready() called.
   startTime();
-  // startSwapPanels();
+  startSwapPanels();
 });
 
 

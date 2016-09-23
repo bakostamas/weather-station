@@ -31,8 +31,8 @@ function startTime() {
 var panels = [
     "#temperature",
     "#humidity",
-    "#pressure",
-    "#wind"
+    "#pressure"
+    // "#wind"
 ];
 var count_panels = panels.length;
 var active_panel = "#temperature";
@@ -41,8 +41,8 @@ var counter = 0;
 
 function swapPanels() {
 
-  $( active_panel ).slideUp( "slow", function() {  //unload
-    $( panels[counter+1] ).slideDown( "slow", function() {  //load
+  $( active_panel ).slideUp( "fast", function() {  //unload
+    $( panels[counter+1] ).slideDown( "fast", function() {  //load
 
       active_panel = panels[counter+1];
       if (counter < count_panels-2) {

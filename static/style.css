@@ -76,6 +76,15 @@ i {
      float:left;
 }
 
+.right_float {
+     float:right;
+}
+
+.swap_values {
+    width: 215px;
+    /* height:142px; */
+}
+
 .after_float {
     clear:both;
 }
@@ -93,19 +102,4 @@ i {
 
 .fix_height {
     height:70px;
-}
-
-.send_back {
-    position: relative;
-    left: 0px;
-    top: 30px;
-    z-index: 0;
-    opacity: 0.2;
-}
-
-.send_front {
-    position: relative;
-    left: 0px;
-    top: -40px;
-    z-index: 1;
 }
