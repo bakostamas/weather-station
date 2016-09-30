@@ -41,16 +41,20 @@ var counter = 0;
 
 function swapPanels() {
 
-  $( active_panel ).slideUp( "fast", function() {  //unload
-    $( panels[counter+1] ).slideDown( "fast", function() {  //load
+  $( active_panel ).slideUp( "fast", function() {  //unload weather data
+    $( panels[counter+1] ).slideDown( "fast", function() {  //load weather data
 
-      active_panel = panels[counter+1];
-      if (counter < count_panels-2) {
-         counter++;
-      } else {
-         counter = -1;
-      }
+      $( active_panel + "_in" ).slideUp( "fast", function() {  //unload indoor data
+        $( panels[counter+1] + "_in" ).slideDown( "fast", function() {  //load indoor data
 
+          active_panel = panels[counter+1];
+          if (counter < count_panels-2) {
+             counter++;
+          } else {
+             counter = -1;
+          }
+        })
+      })
     })
   });
 
