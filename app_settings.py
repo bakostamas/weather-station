@@ -4,8 +4,11 @@ Settings for Weather Station application
 
 appid = ''  # appid to openweathermap.com
 units = 'metric'
-lang = 'hu'  # 'en', 'hu'
+lang = 'en'  # 'en', 'hu'
 timezone = 'Europe/Budapest'
+full_date_format = '%Y-%m-%d %H:%M:%S'
+short_date_format = '%Y.%m.%d.'
+time_format = '%H:%M:%S'
 mode = 'json'
 city_code = 3054643  # Sample city codes: 3054643=Budapest, 5506956=LasVegas, 5128638=NewYork
 

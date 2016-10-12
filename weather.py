@@ -47,7 +47,7 @@ class WeatherNow:
             self.country_code = weather_list['sys']['country']
             timestamp = weather_list['dt']
             date_object = datetime.fromtimestamp(timestamp, tz=pytz.timezone(app_settings.timezone))
-            self.date = date_object.strftime("%Y-%m-%d %H:%M:%S")
+            self.date = date_object.strftime(app_settings.full_date_format)
             self.day_of_week = date_object.strftime("%A").capitalize()
             self.clouds = weather_list['clouds']['all']
             try:
@@ -72,10 +72,10 @@ class WeatherNow:
                 self.snow_volume = 0
             timestamp_sunrise = weather_list['sys']['sunrise']
             date_object_sunrise = datetime.fromtimestamp(timestamp_sunrise, tz=pytz.timezone(app_settings.timezone))
-            self.sunrise = date_object_sunrise.strftime("%H:%M:%S")
+            self.sunrise = date_object_sunrise.strftime(app_settings.time_format)
             timestamp_sunset = weather_list['sys']['sunset']
             date_object_sunset = datetime.fromtimestamp(timestamp_sunset, tz=pytz.timezone(app_settings.timezone))
-            self.sunset = date_object_sunset.strftime("%H:%M:%S")
+            self.sunset = date_object_sunset.strftime(app_settings.time_format)
             # Define the weather icon based on it's day or night now:
             if date_object_sunrise < self.query_date and self.query_date < date_object_sunset:
                 self.weather_icon = 'wi-owm-day-' + str(self.weather_id)
@@ -115,7 +115,7 @@ class WeatherForecast:
             for list_index in range(1, 6):  # weather_list['list']
                 timestamp = weather_list['list'][list_index]['dt']
                 date_object = datetime.fromtimestamp(timestamp, tz=pytz.timezone(app_settings.timezone))
-                self.date.append(date_object.strftime("%Y.%m.%d."))  # The same date in different format
+                self.date.append(date_object.strftime(app_settings.short_date_format))  # The same date in different format
                 self.date2.append(date_object.strftime("%Y-%m-%d"))  # The same date in different format
                 self.day_of_week.append(date_object.strftime("%A").capitalize())
                 self.clouds.append(weather_list['list'][list_index]['clouds'])
