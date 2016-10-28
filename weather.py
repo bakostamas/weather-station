@@ -76,17 +76,19 @@ class WeatherNow:
             timestamp_sunset = weather_list['sys']['sunset']
             date_object_sunset = datetime.fromtimestamp(timestamp_sunset, tz=pytz.timezone(app_settings.timezone))
             self.sunset = date_object_sunset.strftime(app_settings.time_format)
-            # Define the weather icon based on it's day or night now:
+            # Define the weather icon and css template based on it's day or night now:
             if date_object_sunrise < self.query_date and self.query_date < date_object_sunset:
                 self.weather_icon = 'wi-owm-day-' + str(self.weather_id)
+                self.color_theme = app_settings.color_theme_day
             else:
                 self.weather_icon = 'wi-owm-night-' + str(self.weather_id)
+                self.color_theme = app_settings.color_theme_night
 
 
 class WeatherForecast:
     """Weather details for forecast"""
     def __init__(self):
-        # Init the arrays with 0 values at index zero
+        # Init the arrays with 0 values at index zero color_theme
         self.date = ["0"]
         self.date2 = ["0"]
         self.day_of_week = ["0"]

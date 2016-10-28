@@ -94,7 +94,6 @@ def index():
                            # temperature_hist=json.dumps(temperature_history),  # json needed for javascript to understand
                            # forecast_temp_hist= json.dumps(forecast_temp_history),
                            lang_dict = lang_dict,
-                           color_theme = app_settings.color_theme,
                            sensor = sensor
                            )
 
