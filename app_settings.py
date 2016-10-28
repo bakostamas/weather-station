@@ -14,7 +14,7 @@ city_code = 3054643  # Sample city codes: 3054643=Budapest, 5506956=LasVegas, 51
 
 # Available themes: natural_green.css, riverside_blue.css, sharkskin_grey.css, dusty_cedar.css, lilac_grey.css, sand_dollar.css
 color_theme_day = 'riverside_blue.css'
-color_theme_night = 'sharkskin_grey.css'
+color_theme_night = 'black_night.css'
 
 log_gathered_data = True  # If True it logs the gathered weather data at every access.
 # If you don't have scheduled crontab for gathering weather data set it True!

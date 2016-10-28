@@ -1,0 +1,8 @@
+.w3-theme-l4 {color:#ddd !important; background-color:#1a1a1a !important}
+.w3-theme-d2 {color:#ddd !important; background-color:#292929 !important}
+
+.w3-theme {color:#ddd !important; background-color:#333333 !important}
+
+/* Additional lines to the default W3.CSS color theme: */
+.w3-border-bottom {border-bottom: 1px solid #5c5c5c !important} /* The same as .w3-theme-l2 background */
+.w3-card-text {color: #ddd !important; background-color:#333333 !important} /* The same as .w3-theme-d2 background */
