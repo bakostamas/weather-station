@@ -5,7 +5,7 @@ Start script for Weather Station application
 from weather import fetch_weather_now, fetch_weather_forecast, calculate_temp_dif
 from flask import Flask, render_template
 from contextlib import closing
-import app_settings, database_actions, json, importlib, locale, connected_sensor, time
+import app_settings, database_actions, json, importlib, locale, time
 
 
 app = Flask(__name__)
@@ -83,18 +83,13 @@ def index():
     else:
         forecast_fetch.weather_desc[0] = lang_dict.err_no_today_forecast
 
-    # Handle connected sensor's data
-    sensor = connected_sensor.SensorData()
-
-
     return render_template('index.html',
                            weather_now=weather_now_fetch,
                            forecast=forecast_fetch,
                            # pressure_hist=json.dumps(pressure_history),  # json needed to javascript to understand
                            # temperature_hist=json.dumps(temperature_history),  # json needed for javascript to understand
                            # forecast_temp_hist= json.dumps(forecast_temp_history),
-                           lang_dict = lang_dict,
-                           sensor = sensor
+                           lang_dict = lang_dict
                            )
 
 

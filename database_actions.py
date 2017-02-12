@@ -7,8 +7,9 @@ def connect_db():
 
 def save_current_data_sql():
     query = 'insert into weather_now(date_of_query, date_of_published, day_of_week, country_code, city_code, city_name, weather_id,'
-    query += 'weather_sum, weather_desc, temp_now, pressure, humidity, wind_speed, wind_dir, clouds, rain_volume, snow_volume)'
-    query += 'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+    query += 'weather_sum, weather_desc, temp_now, pressure, humidity, wind_speed, wind_dir, clouds, rain_volume, snow_volume,'
+    query += 'sensor_temp, sensor_hum, sensor_pres)'
+    query += 'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
     return query
 
 
@@ -20,7 +21,8 @@ def save_current_data_params(weather_now_fetch):
                   weather_now_fetch.temp_now, weather_now_fetch.pressure, weather_now_fetch.humidity,
                   weather_now_fetch.wind_speed,
                   weather_now_fetch.wind_dir, weather_now_fetch.clouds, weather_now_fetch.rain_volume,
-                  weather_now_fetch.snow_volume]
+                  weather_now_fetch.snow_volume, weather_now_fetch.sensor_data.temperature,
+                  weather_now_fetch.sensor_data.humidity, weather_now_fetch.sensor_data.pressure]
 
     return parameters
 

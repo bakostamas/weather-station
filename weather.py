@@ -1,5 +1,6 @@
 
 import json, pprint, app_settings, pytz
+import connected_sensor
 from datetime import datetime
 from urllib.request import urlopen  # Only in Python 3
 
@@ -83,6 +84,10 @@ class WeatherNow:
             else:
                 self.weather_icon = 'wi-owm-night-' + str(self.weather_id)
                 self.color_theme = app_settings.color_theme_night
+
+        # Get sensor's data
+        self.sensor_data = connected_sensor.SensorData()
+
 
 
 class WeatherForecast:
