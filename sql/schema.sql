@@ -49,7 +49,10 @@ CREATE TABLE weather_now (
     wind_dir          NUMERIC,
     clouds            NUMERIC,
     rain_volume       NUMERIC,
-    snow_volume       NUMERIC
+    snow_volume       NUMERIC,
+    sensor_temp       NUMERIC,
+    sensor_hum        NUMERIC,
+    sensor_pres       NUMERIC
 );
 
 

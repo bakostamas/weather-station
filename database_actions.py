@@ -100,8 +100,8 @@ def save_forecast_weather_to_db(forecast_fetch = []):
     db.close()
 
 
-#Get and save to database the current weather data if the package was called directly
-#You can call it as a scheduled job by crontab
+# Get and save to database the current weather data if the package was called directly
+# You can call it as a scheduled job by crontab
 if __name__ == "__main__":
     save_current_weather_to_db()
     time.sleep(10)  # Wait 10 seconds before the next query (needed for openweathermap.org to work correctly)
