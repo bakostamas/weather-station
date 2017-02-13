@@ -622,6 +622,16 @@ CREATE VIEW v_todays_forecast AS
                        WHERE date(f.date_of_forecast) = date('now', 'localtime') 
                   );
 
+-- View: v_sensor_history
+create view v_sensor_history as
+   select t.date_of_query, t.sensor_temp, t.sensor_hum, t.sensor_pres
+    from weather_now t
+   where julianday(datetime('now', 'localtime') ) - julianday(t.date_of_query) BETWEEN 0 AND 5
+     and  t.sensor_temp is not null
+     and t.sensor_hum is not null
+     and t.sensor_pres is not null
+   order by t.date_of_query;
+
 
 COMMIT TRANSACTION;
 PRAGMA foreign_keys = on;
