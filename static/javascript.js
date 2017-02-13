@@ -1,3 +1,60 @@
+function buildChartsPressure(chart_id, chart_title, params) { //params: [period, value] array
+    var period = [];
+    var values_avg = [];
+    var values_min = [];
+    var values_max = [];
+    for (i=0; i<params.length; i++) {
+        period.push(params[i][0]); //fill up the "period" array
+        values_pres.push(params[i][1]); //fill up the "values_avg" array
+        //values_min.push(params[i][2]); //fill up the "values_min" array
+        //values_max.push(params[i][3]); //fill up the "values_max" array
+
+        //console.log(params[i]); For debugging - puts the values to browser's console
+    }
+
+    var ctx = document.getElementById(chart_id);
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: period,
+            datasets: [{
+                label: chart_title,
+                data: values_pres,
+                borderWidth: 2,
+                backgroundColor: "#555", //"#77A0CE"
+                borderColor: "#555", //"#77A0CE"
+                fill: false
+            }/*,{
+                label: "Min. " + chart_title,
+                data: values_min,
+                borderWidth: 2,
+                backgroundColor: "#33E", //"#77A0CE"
+                borderColor: "#33E", //"#77A0CE"
+                fill: false
+            },{
+                label: "Max. " + chart_title,
+                data: values_max,
+                borderWidth: 2,
+                backgroundColor: "#E33", //"#77A0CE"
+                borderColor: "#E33", //"#77A0CE"
+                fill: false
+            }*/
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:false
+                    }
+                }]
+            }
+        }
+    });
+}
+
+
+
 function checkTime(i) {
     if (i < 10) {
         i = "0" + i;
@@ -65,3 +122,4 @@ function startSwapPanels() {
 
     var x = setInterval(swapPanels, 5000);
 }
+

@@ -83,12 +83,16 @@ def index():
     else:
         forecast_fetch.weather_desc[0] = lang_dict.err_no_today_forecast
 
+    # Get sensor's pressure history from recorded data
+    sensor_pres_history = database_actions.get_sensor_pres_history(app_settings.city_code)
+
     return render_template('index.html',
                            weather_now=weather_now_fetch,
                            forecast=forecast_fetch,
                            # pressure_hist=json.dumps(pressure_history),  # json needed to javascript to understand
                            # temperature_hist=json.dumps(temperature_history),  # json needed for javascript to understand
                            # forecast_temp_hist= json.dumps(forecast_temp_history),
+                           sensor_pres_history=json.dumps(sensor_pres_history), # json needed for javascript to understand
                            lang_dict = lang_dict
                            )
 

@@ -624,7 +624,7 @@ CREATE VIEW v_todays_forecast AS
 
 -- View: v_sensor_history
 create view v_sensor_history as
-   select t.date_of_query, t.sensor_temp, t.sensor_hum, t.sensor_pres
+   select t.date_of_query, t.sensor_temp, t.sensor_hum, t.sensor_pres, t.city_code
     from weather_now t
    where julianday(datetime('now', 'localtime') ) - julianday(t.date_of_query) BETWEEN 0 AND 5
      and  t.sensor_temp is not null
