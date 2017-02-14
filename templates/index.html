@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="static/style.css" type="text/css">
     <script type="text/javascript" src="static/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="static/javascript.js"></script>
+    <script type="text/javascript" src="static/Chart.js"></script>
 
 
 </head>
@@ -229,13 +230,14 @@
 
 <script>
 
+buildChartsPressure('pressureChart', '{{ lang_dict.pressure|safe }}', {{ sensor_pres_history|safe }});
+{# |safe needed to discard Jinja's htmlescaping #}
+
 $(function() {
   // Handler for .ready() called.
   startTime();
   startSwapPanels();
 
-  buildChartsPressure('pressureChart', '{{ lang_dict.pressure|safe }}', {{ sensor_pres_history|safe }});
-  {# |safe needed to discard Jinja's htmlescaping #}
 });
 
 
