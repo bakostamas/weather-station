@@ -1,6 +1,7 @@
+
 function buildChartsPressure(chart_id, chart_title, params) { //params: [period, value] array
     var period = [];
-    var values_avg = [];
+    var values_pres = [];
     var values_min = [];
     var values_max = [];
     for (i=0; i<params.length; i++) {

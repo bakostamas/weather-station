@@ -230,13 +230,12 @@
 
 <script>
 
-buildChartsPressure('pressureChart', '{{ lang_dict.pressure|safe }}', {{ sensor_pres_history|safe }});
-{# |safe needed to discard Jinja's htmlescaping #}
-
 $(function() {
   // Handler for .ready() called.
   startTime();
   startSwapPanels();
+
+  buildChartsPressure('pressureChart', '{{ lang_dict.pressure|safe }}', {{ sensor_pres_history|safe }});
 
 });
 
