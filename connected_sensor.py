@@ -9,7 +9,7 @@ try:
     sensor = bme.BME280(mode=bme.BME280_OSAMPLE_8)
     temp = round(sensor.read_temperature(), 1)
     hum = round(sensor.read_humidity())
-    pres = round(sensor.read_pressure()/100)
+    pres = round(sensor.read_pressure()/100, 2)
 
 except:
     # Show default 0 values
