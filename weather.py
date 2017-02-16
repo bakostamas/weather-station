@@ -87,7 +87,6 @@ class WeatherNow:
 
         # Get sensor's data
         self.sensor_data = connected_sensor.SensorData()
-        self.sensor_data.pressure = round(self.sensor_data.pressure)
 
 
 
