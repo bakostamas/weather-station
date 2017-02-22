@@ -4,7 +4,7 @@ English language pack
 
 
 class LangPack:
-    """Hungarian Language pack"""
+    """English Language pack"""
     def __init__(self):
         self.now = 'Now'
         self.today = 'Today'
@@ -15,3 +15,12 @@ class LangPack:
         self.clouds = 'Clouds'
         self.temp_forecast = 'Temperature forecast'
         self.err_no_today_forecast = 'No forecast data for today'
+        self.week_days = {
+            0: 'Sunday',
+            1: 'Monday',
+            2: 'Tuesday',
+            3: 'Wednesday',
+            4: 'Thursday',
+            5: 'Friday',
+            6: 'Saturday'
+        }

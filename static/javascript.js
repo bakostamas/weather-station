@@ -4,8 +4,15 @@ function buildChartsPressure(chart_id, chart_title, params) { //params: [period,
     var values_pres = [];
     var values_min = [];
     var values_max = [];
+    var prev_val = 0;
     for (i=0; i<params.length; i++) {
-        period.push(params[i][0]); //fill up the "period" array
+        if (params[i][0] != prev_val) {
+            period.push(params[i][0]); //fill up the "period" array only with unique values
+            prev_val = params[i][0];
+        } else {
+            period.push(""); //push null to "period" array
+        }
+
         values_pres.push(params[i][1]); //fill up the "values_avg" array
         //values_min.push(params[i][2]); //fill up the "values_min" array
         //values_max.push(params[i][3]); //fill up the "values_max" array

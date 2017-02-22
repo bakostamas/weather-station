@@ -74,8 +74,8 @@ def getTodaysForecastTemp(city_code):
 
 
 def get_sensor_pres_history(city_code):
-    query = 'select t.date_of_query, t.sensor_pres from v_sensor_history t '
-    query += 'where t.city_code = '+ str(city_code) +' order by t.date_of_query'
+    query = "select strftime('%w - %H:00', t.date_of_query), t.sensor_pres from v_sensor_history t "  # strftime('%m.%d - %H:00', t.date_of_query)
+    query += "where t.city_code = "+ str(city_code) +" order by t.date_of_query"
     cur = connect_db().execute(query)
     sensor_pres_history = cur.fetchall() #Puts the collected historical data to "pressure_history" list
     cur.close()

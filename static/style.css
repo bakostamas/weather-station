@@ -2,7 +2,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 100%;
-	cursor: none;
+	/* cursor: none; */
 }
 
 i {
@@ -103,4 +103,8 @@ i {
 
 .fix_height {
     height:70px;
+}
+
+.chart_1 {
+    height: 250px;
 }

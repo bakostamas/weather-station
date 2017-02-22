@@ -85,6 +85,8 @@ def index():
 
     # Get sensor's pressure history from recorded data
     sensor_pres_history = database_actions.get_sensor_pres_history(app_settings.city_code)
+    # Replace [0-6] day's id with name of day from language pack:
+    sensor_pres_history = list(map(lambda x: (lang_dict.week_days[int(x[0][0])] + x[0][1:], x[1]), sensor_pres_history))
 
     return render_template('index.html',
                            weather_now=weather_now_fetch,
